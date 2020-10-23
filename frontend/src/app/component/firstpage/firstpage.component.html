@@ -1,0 +1,76 @@
+<div class="main-class">
+    <div class="container">
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h2 class="card-title mt-3 text-center">Employee Detail</h2><hr>
+            <form  [formGroup]="Form" novalidate class="form login-form">
+               
+               
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input  formControlName='firstname' class="form-control" placeholder="First name" type="text" required>
+                    <div
+                    *ngIf="Form.get('firstname').hasError('required') && Form.get('firstname').touched">
+                First name is required</div>
+
+                  </div>
+            
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input  formControlName='lastname' class="form-control" placeholder= "Last name" type="text" required>
+                    <div 
+                    *ngIf="Form.get('lastname').hasError('required') && Form.get('lastname').touched">
+                Last name is required</div>
+  
+                  </div>
+  
+                  
+               
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <input  formControlName='email' class="form-control" placeholder="Email address" type="email">
+                    <div 
+                        *ngIf="Form.get('email').hasError('required') && Form.get('email').touched">
+                    Email is required</div>
+  
+                <div 
+                    *ngIf="Form.get('email').hasError('pattern') && Form.get('email').touched">
+                    Please Enter Valid Email ID
+                </div>
+            </div>
+  
+                
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select class="custom-select" style="max-width: 120px;">
+                        <option selected="">+91</option>
+                        <option value="1">+33</option>
+                        <option value="2">+49</option>
+                        <option value="3">+11</option>
+                    </select>
+                    <input  formControlName='phone' class="form-control" placeholder="Phone number" type="text">
+                </div>
+  
+  
+                <div class="form-group">
+                  
+                  <!-- <a class="btn btn-link float-right" routerLinkActive="active" routerLink="/secondpage">Continue...
+                      </a> -->
+                      <input type="submit" class="btn btn-link float-right" (click)="sendData()" value="continue..">
+
+              </div>              
+  
+  
+            </form>
+        </article>
+    </div>
+  </div>
+</div>
